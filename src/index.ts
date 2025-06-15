@@ -12,13 +12,13 @@ app.use(express.json());
 
 app.use("/v1/api/mergeVideoAudio", mergeRoute);
 
-app.get("/", (res: Response) => {
-  Response.json({
+app.get("/health", (res: Response) => {
+  res.status(200).json({
     message: "Hello! Your text-to-video server is running",
   });
   return;
 });
 
 app.listen(process.env.PORT || 8000, () => {
-  console.log("Server Started On Port:-", process.env.PORT);
+  console.log("Server Started On Port:-", process.env.PORT || 8000);
 });
